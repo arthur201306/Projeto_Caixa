@@ -146,6 +146,10 @@ public class Conta extends javax.swing.JFrame {
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         // TODO add your handling code here:
+        boolean credito = toggleCredito.isSelected();
+        boolean debito = toggleDebito.isSelected();
+        boolean dinheiro = toggleDinheiro.isSelected();
+        boolean pix = togglePix.isSelected();
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
