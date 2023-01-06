@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -25,17 +28,18 @@ public class Conta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoPagamento = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        toggleCredito = new javax.swing.JToggleButton();
-        toggleDebito = new javax.swing.JToggleButton();
-        togglePix = new javax.swing.JToggleButton();
-        toggleDinheiro = new javax.swing.JToggleButton();
         btnConfirma = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
         btnFecharCaixa = new javax.swing.JButton();
+        radioPix = new javax.swing.JRadioButton();
+        radioCredito = new javax.swing.JRadioButton();
+        radioDinheiro = new javax.swing.JRadioButton();
+        radioDebito = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,14 +50,6 @@ public class Conta extends javax.swing.JFrame {
         jLabel3.setText("Created by Arthur Muniz");
 
         jLabel5.setText("Forma de pgto");
-
-        toggleCredito.setText("Crédito");
-
-        toggleDebito.setText("Débito");
-
-        togglePix.setText("Pix");
-
-        toggleDinheiro.setText("Dinheiro");
 
         btnConfirma.setText("Confirmar");
         btnConfirma.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +73,18 @@ public class Conta extends javax.swing.JFrame {
             }
         });
 
+        grupoPagamento.add(radioPix);
+        radioPix.setText("Pix");
+
+        grupoPagamento.add(radioCredito);
+        radioCredito.setText("Crédito");
+
+        grupoPagamento.add(radioDinheiro);
+        radioDinheiro.setText("Dinheiro");
+
+        grupoPagamento.add(radioDebito);
+        radioDebito.setText("Débito");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,20 +106,22 @@ public class Conta extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGap(0, 34, Short.MAX_VALUE)
                                         .addComponent(jLabel3))
                                     .addComponent(txtValor)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addComponent(jLabel5)
-                                .addGap(61, 61, 61)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(togglePix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(toggleCredito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(184, 184, 184)
+                                    .addComponent(radioPix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(radioCredito, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                                .addGap(42, 42, 42)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(toggleDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(toggleDebito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(radioDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(radioDebito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(159, 159, 159)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,16 +135,16 @@ public class Conta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(toggleCredito)
-                    .addComponent(toggleDebito))
-                .addGap(28, 28, 28)
+                    .addComponent(radioCredito)
+                    .addComponent(radioDebito))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(togglePix)
-                    .addComponent(toggleDinheiro))
-                .addGap(85, 85, 85)
+                    .addComponent(radioPix)
+                    .addComponent(radioDinheiro))
+                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirma)
                     .addComponent(btnFecharCaixa))
@@ -146,10 +156,8 @@ public class Conta extends javax.swing.JFrame {
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         // TODO add your handling code here:
-        boolean credito = toggleCredito.isSelected();
-        boolean debito = toggleDebito.isSelected();
-        boolean dinheiro = toggleDinheiro.isSelected();
-        boolean pix = togglePix.isSelected();
+        JOptionPane.showMessageDialog(rootPane, grupoPagamento.getSelection().getActionCommand());
+        
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
@@ -200,14 +208,15 @@ public class Conta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirma;
     private javax.swing.JButton btnFecharCaixa;
+    private javax.swing.ButtonGroup grupoPagamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JToggleButton toggleCredito;
-    private javax.swing.JToggleButton toggleDebito;
-    private javax.swing.JToggleButton toggleDinheiro;
-    private javax.swing.JToggleButton togglePix;
+    private javax.swing.JRadioButton radioCredito;
+    private javax.swing.JRadioButton radioDebito;
+    private javax.swing.JRadioButton radioDinheiro;
+    private javax.swing.JRadioButton radioPix;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
