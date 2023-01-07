@@ -75,15 +75,19 @@ public class Conta extends javax.swing.JFrame {
 
         grupoPagamento.add(radioPix);
         radioPix.setText("Pix");
+        radioPix.setActionCommand("rbPix");
 
         grupoPagamento.add(radioCredito);
         radioCredito.setText("Crédito");
+        radioCredito.setActionCommand("rbCredito");
 
         grupoPagamento.add(radioDinheiro);
         radioDinheiro.setText("Dinheiro");
+        radioDinheiro.setActionCommand("rbDinheiro");
 
         grupoPagamento.add(radioDebito);
         radioDebito.setText("Débito");
+        radioDebito.setActionCommand("rbDebito");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,8 +160,30 @@ public class Conta extends javax.swing.JFrame {
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, grupoPagamento.getSelection().getActionCommand());
+        String formaPagamento;
         
+        switch (grupoPagamento.getSelection().getActionCommand()) {
+            case "rbCredito":
+                formaPagamento = "credito";
+                break;
+                
+            case "rbDebito":
+                formaPagamento = "debito";
+                break;
+                
+            case "rbPix":
+                formaPagamento = "pix";
+                break;
+                
+            case "rbDinheiro":
+                formaPagamento = "dinheiro";
+                break;
+                               
+            default:
+                throw new AssertionError();
+        }
+        
+        System.out.println(formaPagamento);
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed

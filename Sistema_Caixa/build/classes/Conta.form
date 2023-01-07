@@ -163,6 +163,7 @@
           <ComponentRef name="grupoPagamento"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pix"/>
+        <Property name="actionCommand" type="java.lang.String" value="rbPix"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioCredito">
@@ -171,6 +172,7 @@
           <ComponentRef name="grupoPagamento"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cr&#xe9;dito"/>
+        <Property name="actionCommand" type="java.lang.String" value="rbCredito"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioDinheiro">
@@ -179,6 +181,7 @@
           <ComponentRef name="grupoPagamento"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Dinheiro"/>
+        <Property name="actionCommand" type="java.lang.String" value="rbDinheiro"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioDebito">
@@ -187,6 +190,7 @@
           <ComponentRef name="grupoPagamento"/>
         </Property>
         <Property name="text" type="java.lang.String" value="D&#xe9;bito"/>
+        <Property name="actionCommand" type="java.lang.String" value="rbDebito"/>
       </Properties>
     </Component>
   </SubComponents>
