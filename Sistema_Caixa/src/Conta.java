@@ -1,6 +1,5 @@
-
-import javax.swing.JOptionPane;
-
+import br.conexaomysql.ConexaoVendaBosnio;
+import java.sql.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,12 +10,14 @@ import javax.swing.JOptionPane;
  * @author arthur
  */
 public class Conta extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FecharConta
-     */
+    
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
     public Conta() {
         initComponents();
+        conexao = ConexaoVendaBosnio.conector();
     }
 
     /**
@@ -183,7 +184,24 @@ public class Conta extends javax.swing.JFrame {
                 throw new AssertionError();
         }
         
+        String sqlVenda = "INSERT INTO vendas(dataPedidos, valorPedidos, formaPgto)\n" +
+"VALUES (NOW()," + txtValor.getText() + " , " + formaPagamento + ");";
+        System.out.println(txtValor.getText());
         System.out.println(formaPagamento);
+        pst = conexao.createStatement();
+
+        
+        try {
+            pst.executeUpdate(sqlVenda);
+            rs = pst.getResultSet();
+            
+            if (rs.next()) {
+                System.out.println("amém");
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
