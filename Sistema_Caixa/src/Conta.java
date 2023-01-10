@@ -1,5 +1,6 @@
 import br.conexaomysql.ConexaoVendaBosnio;
 import java.sql.*;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -184,20 +185,17 @@ public class Conta extends javax.swing.JFrame {
                 throw new AssertionError();
         }
         
+        String sqlSelect = "SELECT * FROM vendas";
         String sqlVenda = "INSERT INTO vendas(dataPedidos, valorPedidos, formaPgto)\n" +
-"VALUES (NOW()," + txtValor.getText() + " , " + formaPagamento + ");";
+"VALUES (NOW(),?, ?);";
         System.out.println(txtValor.getText());
         System.out.println(formaPagamento);
-        pst = conexao.createStatement();
-
         
         try {
-            pst.executeUpdate(sqlVenda);
-            rs = pst.getResultSet();
-            
-            if (rs.next()) {
-                System.out.println("amém");
-            }
+            pst = conexao.prepareStatement(sqlVenda);
+            pst.setString(1, txtValor.getText());
+            pst.setString(2, formaPagamento);
+            pst.execute();
             
         } catch (Exception e) {
             System.out.println(e);
